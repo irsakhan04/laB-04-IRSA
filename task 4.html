@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 3: Student Result Calculator</title>
+</head>
+<body>
+<h2>Task 3: Student Result Calculator</h2>
+<input type="number" id="sub1" placeholder="Marks for Subject 1">
+<input type="number" id="sub2" placeholder="Marks for Subject 2">
+<input type="number" id="sub3" placeholder="Marks for Subject 3">
+<button onclick="calculateResult()">Calculate Result</button>
+<div id="resultOutput"></div>
+
+<script>
+function calculateResult() {
+    let sub1 = parseFloat(document.getElementById("sub1").value);
+    let sub2 = parseFloat(document.getElementById("sub2").value);
+    let sub3 = parseFloat(document.getElementById("sub3").value);
+
+    if (isNaN(sub1) || isNaN(sub2) || isNaN(sub3)) {
+        document.getElementById("resultOutput").innerText = "Please enter valid marks for all subjects.";
+        return;
+    }
+
+    let total = sub1 + sub2 + sub3;
+    let percentage = (total / 300) * 100;
+    let grade = "";
+
+    if (percentage >= 90) grade = "A+";
+    else if (percentage >= 80) grade = "A";
+    else if (percentage >= 70) grade = "B";
+    else if (percentage >= 60) grade = "C";
+    else if (percentage >= 50) grade = "D";
+    else grade = "F";
+
+    document.getElementById("resultOutput").innerText =
+        "Total: " + total + "\nPercentage: " + percentage.toFixed(2) + "%\nGrade: " + grade;
+}
+</script>
+</body>
+</html>

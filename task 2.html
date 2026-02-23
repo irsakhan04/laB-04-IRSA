@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATM Withdrawal</title>
+</head>
+<body>
+
+<h3>ATM Withdrawal</h3>
+
+<p>Current Balance: $<span id="balance">1000</span></p>
+
+<input type="number" id="withdrawAmount" placeholder="Enter withdrawal amount">
+<button onclick="withdraw()">Withdraw</button>
+
+<p id="message"></p>
+
+<script>
+let balance = 1000;
+
+function withdraw() {
+    let amount = parseFloat(document.getElementById("withdrawAmount").value);
+
+    if (amount > balance) {
+        document.getElementById("message").innerText = "Insufficient balance. Withdrawal not allowed.";
+    } else if (amount <= 0 || isNaN(amount)) {
+        document.getElementById("message").innerText = "Please enter a valid amount.";
+    } else {
+        balance -= amount;
+        document.getElementById("balance").innerText = balance;
+        document.getElementById("message").innerText = "Withdrawal successful!";
+    }
+}
+</script>
+
+</body>
+</html>

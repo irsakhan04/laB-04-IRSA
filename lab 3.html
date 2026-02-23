@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 2: Loop Customization</title>
+</head>
+<body>
+<h2>Task 2: Loop Customization</h2>
+<button onclick="printNumbers()">Print Numbers 1–20</button>
+<button onclick="printEvenNumbers()">Print Even Numbers 1–20</button>
+<button onclick="printReverseNumbers()">Print Numbers 10–1</button>
+<div id="loopOutput"></div>
+
+<script>
+function printNumbers() {
+    let output = "";
+    for (let i = 1; i <= 20; i++) {
+        output += i + " ";
+    }
+    document.getElementById("loopOutput").innerText = "Numbers 1–20: " + output;
+}
+
+function printEvenNumbers() {
+    let output = "";
+    for (let i = 2; i <= 20; i += 2) {
+        output += i + " ";
+    }
+    document.getElementById("loopOutput").innerText = "Even numbers 1–20: " + output;
+}
+
+function printReverseNumbers() {
+    let output = "";
+    for (let i = 10; i >= 1; i--) {
+        output += i + " ";
+    }
+    document.getElementById("loopOutput").innerText = "Numbers in reverse 10–1: " + output;
+}
+</script>
+</body>
+</html>
